@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import {NavService} from '../../nav.service';
 import { Cliente } from "../../mock-opciones";
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 
 @Component({
@@ -10,6 +12,39 @@ import { Cliente } from "../../mock-opciones";
   styleUrls: ['./form1.component.scss']
 })
 export class Form1Component implements OnInit {
+  direccionFormControl= new FormControl('', [
+    Validators.required,
+    Validators.max(15),
+  ])
+  numberFormControl = new FormControl('', [
+    Validators.required,
+    Validators.max(15),
+  ]);
+  nameFormControl = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(40)
+  ]); 
+  contactoFormControl = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(40)
+  ]);
+  RepAntFormControl = new FormControl('', [
+    Validators.required
+  ]);
+  RevFormControl = new FormControl('',[
+  Validators.required
+  ]);
+  VendedorFromControl = new FormControl('', [
+    Validators.required
+  ]);
+  ConsecutivoFromControl = new FormControl('', [
+    Validators.required
+  ]);
+  ventaeqFromControl = new FormControl('', [
+  Validators.required
+  ]);
+
+  public ownerForm: FormGroup;
    name;
   opc = Cliente;
   informacion=null;
@@ -120,6 +155,7 @@ export class Form1Component implements OnInit {
   hayRegistros() {
     return true;
   }
+
   
 
 }
