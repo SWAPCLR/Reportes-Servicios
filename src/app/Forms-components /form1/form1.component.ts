@@ -98,6 +98,7 @@ export class Form1Component implements OnInit {
     });
   }
   ngOnInit() {
+    this.flag= false;
      this.x = this.navServicio.showDatos2();
      console.log(this.x);
     this.flag = this.navServicio.showDatos();

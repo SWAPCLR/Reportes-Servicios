@@ -58,9 +58,9 @@ informacion: null;
   }
   filtro1(x) {
     console.log(x);
-    $('#' + x).toggleClass('d-none');
-    $('#' + x + '1').toggleClass('d-none');
-    $('#' + x + '2').toggleClass('d-none');
+    $('.' + x).toggleClass('d-none');
+    $('.' + x + '1').toggleClass('d-none');
+    $('.' + x + '2').toggleClass('d-none');
   }
   pruebas(rep) {
     var x = true
@@ -71,6 +71,10 @@ informacion: null;
 
   log(z){
     console.log(z);
+  }
+  nuevo(){
+    var x = false;
+    this.navService.getDatos(x);
   }
 
   eliminar(rep){

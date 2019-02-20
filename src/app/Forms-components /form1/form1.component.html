@@ -14,10 +14,10 @@
 
            <mat-form-field class="example-full-width col-12">
               <input matInput minlength="5" maxlength="10" required ngModel name="name" #name="ngModel" [(ngModel)]="art.report_ant"
-                (change)="log(name)" placeholder="Nombre Cliente" value="" name="name1">
+               placeholder="Nombre Cliente" value="" name="name1">
               <mat-error *ngIf="!name.valid">
-                <mat-error *ngIf="name.errors.required"> Por favor llene este campo</mat-error>
-                <mat-error *ngIf="name.errors.minlength"> El nombre debe tener mas de 5 carecteres</mat-error>
+                <mat-error *ngIf="!!name.errors.required"> Por favor llene este campo</mat-error>
+                <mat-error *ngIf="!!name.errors.minlength"> El nombre debe tener mas de 5 carecteres</mat-error>
               </mat-error>
             </mat-form-field>
 
