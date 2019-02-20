@@ -1,54 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import {NavService} from '../../nav.service';
+import { NavService } from '../../nav.service';
 import { Cliente } from "../../mock-opciones";
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
-
 @Component({
-  selector: 'app-form1',
-  templateUrl: './form1.component.html',
-  styleUrls: ['./form1.component.scss']
+  selector: 'app-rep-servicios',
+  templateUrl: './rep-servicios.component.html',
+  styleUrls: ['./rep-servicios.component.scss']
 })
-export class Form1Component implements OnInit {
-  direccionFormControl= new FormControl('', [
-    Validators.required,
-    Validators.max(15),
-  ])
-  numberFormControl = new FormControl('', [
-    Validators.required,
-    Validators.max(15),
-  ]);
-  nameFormControl = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(40)
-  ]); 
-  contactoFormControl = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(40)
-  ]);
-  RepAntFormControl = new FormControl('', [
-    Validators.required
-  ]);
-  RevFormControl = new FormControl('',[
-  Validators.required
-  ]);
-  VendedorFromControl = new FormControl('', [
-    Validators.required
-  ]);
-  ConsecutivoFromControl = new FormControl('', [
-    Validators.required
-  ]);
-  ventaeqFromControl = new FormControl('', [
-  Validators.required
-  ]);
-
-  public ownerForm: FormGroup;
-   name;
+export class RepServiciosComponent implements OnInit {
+  name;
   opc = Cliente;
-  informacion=null;
-  art={
+  informacion = null;
+  art = {
     id: null,
     nombre_cliente: null,
     contacto: null,
@@ -63,7 +29,7 @@ export class Form1Component implements OnInit {
     garantia: null,
     nivel_molestia: null,
     marca: null,
-    serie: null, 
+    serie: null,
     modelo: null,
     desc_equipo: null,
     levanta_report: null,
@@ -83,30 +49,30 @@ export class Form1Component implements OnInit {
     precio_venta: null
   }
   constructor(private navServicio: NavService) { }
-  flag: boolean = false;
+  flag: boolean;
   x;
-  show:boolean = true;
-  show1:boolean = false;
+  show: boolean = true;
+  show1: boolean = false;
   selectedOpcion: string;
- 
-  create_user(){
+
+  create_user() {
     console.log("hola akjsbdosajdb");
     this.navServicio.create_user(this.art).subscribe(datos => {
-      if (datos['resultado']=='OK') {
+      if (datos['resultado'] == 'OK') {
         alert(datos['mensaje']);
-      } 
+      }
     });
   }
   ngOnInit() {
-     this.x = this.navServicio.showDatos2();
-     console.log(this.x);
+    this.x = this.navServicio.showDatos2();
+    console.log(this.x);
     this.flag = this.navServicio.showDatos();
-    if(this.flag){
+    if (this.flag) {
       this.show = false;
       this.show1 = true;
     }
     console.log(this.flag);
-    if(this.flag){
+    if (this.flag) {
       this.art = {
         id: this.x.id,
         nombre_cliente: this.x.nombre_cliente,
@@ -143,19 +109,19 @@ export class Form1Component implements OnInit {
       }
     }
   }
-  
+
   actualizar() {
     this.navServicio.actualizar(this.art).subscribe(datos => {
-      if (datos['resultado']=='OK') {
+      if (datos['resultado'] == 'OK') {
         alert(datos['mensaje']);
       }
-    });    
+    });
   }
 
   hayRegistros() {
     return true;
   }
 
-  
+
 
 }

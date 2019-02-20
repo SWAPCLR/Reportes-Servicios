@@ -13,7 +13,7 @@ export class NavService {
   public urleliminar='https://servitek.gastrotek.com.mx/proy-servicios/index.php/Controlador3/';
 
   constructor(private http: HttpClient) { }
-  flag;
+  flag  = false;
   Rep;
   mostrar() {
     return this.http.get(`${this.url}mostrar.php`);
@@ -26,6 +26,7 @@ export class NavService {
     return this.http.get<ReporteServicio[]>(this.serviceUrl)
   }
   getDatos(x){
+    this.flag = false;
      this.flag = x;
     console.log(x);
     return x;

@@ -1,0 +1,283 @@
+<div class="body container bg-white">
+  <form (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
+    <div class="row justify-content-center pb-2 ">
+      <div class="col-8 formulario justify-content-around ">
+        <form (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
+          <div class="row justify-content-between form-group ">
+            <mat-form-field class="example-full-width col-12">
+              <input matInput minlength="5" maxlength="10" required ngModel name="name" #name="ngModel" [(ngModel)]="art.report_ant"
+                (change)="log(name)" placeholder="Nombre Cliente" value="" name="name1">
+              <mat-error *ngIf="!name.valid">
+                <mat-error *ngIf="name.errors.required"> Por favor llene este campo</mat-error>
+                <mat-error *ngIf="name.errors.minlength"> El nombre debe tener mas de 5 carecteres</mat-error>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6">
+              <input matInput minlength="5" maxlength="10" placeholder="Contacto" value="" required ngModel name="name2"
+                #name2="ngModel">
+              <mat-error *ngIf="!name2.valid">
+                <mat-error *ngIf="name2.errors.required"> Por favor llene este campo</mat-error>
+                <mat-error *ngIf="name2.errors.minlength"> El Contacto debe tener mas de 5 carecteres</mat-error>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6">
+              <input matInput placeholder="Tel. Oficina" value="" type="number" ngModel number name="name3" #name3="ngModel"
+                required>
+              <mat-error *ngIf="!name3.valid">
+                Por favor llene este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-12">
+              <input matInput placeholder="Direccion" value="" ngModel name="name4" #name4="ngModel" required>
+              <mat-error *ngIf="!name4.valid">
+                Por favor llene este campo
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <button [disabled]="!contactForm.form.valid">Enviar</button>
+        </form>
+      </div>
+    </div>
+    <!--Segund aparte del Form para validar si se lleno la primera parte contactForm.form.valid-->
+    <div class="row justify-content-center pb-2 pt-2 borde-top" *ngIf="true">
+      <div class="col-8 formulario justify-content-around">
+        <form class="form-group ">
+          <div class="row justify-content-between d-flex  ">
+            <mat-form-field class="example-full-width col-6">
+              <input matInput placeholder="No. Reportes Anteriores" type="number" ngModel name="name5" #name5="ngModel"
+                required>
+              <mat-error *ngIf="!name5.valid">
+                Favor de llenar este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6">
+              <input matInput placeholder="No. Revisiones que lleva" ngModel name="name6" #name6="ngModel" required>
+              <mat-error *ngIf="!name6.valid">
+                Complete este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6">
+              <input matInput placeholder="Vendedor" [(ngModel)]="art.vendedor" ngModel name="name70" #name70="ngModel"
+                required>
+              <mat-error *ngIf="!name70.valid">
+                Complete este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6">
+              <input matInput placeholder="Consecutivo" [(ngModel)]="art.consecutivo" ngModel name="name7" #name7="ngModel"
+                required>
+              <mat-error *ngIf="!name7.valid">
+                Favor de llenar este campo
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <!--Inputs Radio-->
+          <div class="row justify-content-between ">
+            <div class="col-5 py-1 mt-1 border border-dark rounded ">
+              <label class="d-block" for="checkbox1_value">Le vendimos nosotros el equipo</label>
+              <mat-radio-group [(ngModel)]="art.venta_equipo" name="name8">
+                <mat-radio-button value="1">Si</mat-radio-button><br>
+                <mat-radio-button value="2">No</mat-radio-button><br>
+              </mat-radio-group>
+            </div>
+            <div class="col-5 py-1 mt-1 border border-dark rounded ">
+              <label class="d-block" for="">Le instalamos nosotros el equipo</label>
+              <mat-radio-group [(ngModel)]="art.instalacion" name="name9">
+                <mat-radio-button value="1">Si</mat-radio-button><br>
+                <mat-radio-button value="2">No</mat-radio-button><br>
+              </mat-radio-group>
+            </div>
+            <div class="col-5 py-1 mt-1 border border-dark rounded ">
+              <label for="" class="d-block">Garantia</label>
+              <mat-radio-group [(ngModel)]="art.garantia" name="name10">
+                <mat-radio-button value="1">Si</mat-radio-button><br>
+                <mat-radio-button value="2">No</mat-radio-button><br>
+              </mat-radio-group>
+            </div>
+            <div class="col-5 py-1 mt-1 border border-dark rounded ">
+              <label for="" class="d-block">Nivel de molestia</label>
+              <mat-radio-group [(ngModel)]="art.nivel_molestia" name="name11">
+                <mat-radio-button value="1">Nada</mat-radio-button><br>
+                <mat-radio-button value="2">Poco</mat-radio-button><br>
+                <mat-radio-button value="3">Mucho</mat-radio-button><br>
+              </mat-radio-group>
+            </div>
+          </div>
+
+          <div class="row pt-1 justify-content-between">
+            <mat-form-field class="example-full-width col-4 mb-1">
+              <input matInput placeholder="Marca" value="" [(ngModel)]="art.marca" ngModel name="name12" #name12="ngModel"
+                required>
+              <mat-error *ngIf="!name12.valid">
+                Complete este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-4 mb-1">
+              <input matInput placeholder="Serie" value="" [(ngModel)]="art.serie" ngModel name="name13" #name13="ngModel"
+                required>
+              <mat-error *ngIf="!name13.valid">
+                Complete este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-4 mb-1">
+              <input matInput placeholder="Modelo de equipo" value="" [(ngModel)]="art.modelo" ngModel name="name14"
+                #name14="ngModel" required>
+              <mat-error *ngIf="!name14.valid">
+                Complete este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6 mb-1">
+              <input matInput placeholder="Descripcion del equipo" value="" [(ngModel)]="art.desc_equipo" ngModel name="name15"
+                #name15="ngModel" required>
+              <mat-error *ngIf="!name15.valid">
+                Complete este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6 mb-1">
+              <input matInput placeholder="Levanta Reporte" value="" [(ngModel)]="art.levanta_report" ngModel name="name16"
+                #name16="ngModel" required>
+              <mat-error *ngIf="!name16.valid">
+                Complete este campo
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width col-6 mb-1">
+              <input matInput placeholder="Falla del reporte del cliente" value="" [(ngModel)]="art.falla" ngModel name="name17"
+                #name17="ngModel" required>
+              <mat-error *ngIf="!name17.valid">
+                Complete este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6 mb-1">
+              <input matInput placeholder="Requisitos para dar el servicio" value="" [(ngModel)]="art.requisitos"
+                ngModel name="name18" #name18="ngModel" required>
+              <mat-error *ngIf="!name18.valid">
+                Complete este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-5 mb-1 ">
+              <input matInput [matDatepicker]="picker" placeholder="Fecha promesa" [(ngModel)]="art.fecha_promesa" name="name19">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-5 mb-1 ">
+              <input matInput [matDatepicker]="pick" placeholder="Fecha Reporte" [(ngModel)]="art.fecha_report" name="name20">
+              <mat-datepicker-toggle matSuffix [for]="pick"></mat-datepicker-toggle>
+              <mat-datepicker #pick></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width col-12 mb-1">
+              <input matInput placeholder="Obs" [(ngModel)]="art.obs" ngModel name="name21" #name21="ngModel" required>
+              <mat-error *ngIf="!name21.valid">
+                Complete este campo
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--Tercera parte del Form-->
+    <div class="row justify-content-center pt-2 pt-2 pb-2 borde-top">
+      <div class="col-8 formulario justify-content-around">
+        <form class="form-group ">
+          <div class="row justify-content-between">
+            <mat-form-field class="example-full-width col-5 mb-1">
+              <input matInput placeholder="Nombre del provedor de servicio" [(ngModel)]="art.nombre_prov" ngModel name="name22"
+                #name22="ngModel" required>
+              <mat-error *ngIf="!name22.valid">
+                Favor de completar este campo
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-5 mb-1">
+              <input matInput placeholder="Pendiente" ngModel name="name220" #name220="ngModel" required>
+              <mat-error *ngIf="!name220.valid">
+                Favor de completar este campo
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-5">
+              <mat-select placeholder="Satisfaccion del cliente" [(ngModel)]="art.satisf_client" name="name23">
+                <mat-option *ngFor="let opcion of opc" [value]="opcion.name">
+                  {{opcion.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width col-12">
+              <textarea matInput placeholder="Descripción del reporte de servicio" [(ngModel)]="art.descripcion" name="name24"></textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-12">
+              <textarea matInput placeholder="Diagnostico del tecnico" [(ngModel)]="art.diagnostico" name="name25"></textarea>
+
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--Cuarta parte del Form pago $$$-->
+    <div class="row justify-content-center pt-2 ">
+      <div class="col-8 formulario justify-content-between">
+        <form class="form-group ">
+          <div class="row justify-content-center">
+            <mat-form-field class="example-full-width col-6 mb-1">
+              <input matInput type="number" placeholder="Cunto nos cobro el cliente" value="" [(ngModel)]="art.costo_client"
+                ngModel name="name26" #name26="ngModel" required>
+              <span matPrefix>$&nbsp;</span>
+              <mat-error *ngIf="!name26.valid">
+                Llene estea campo+
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6 mb-1">
+              <input matInput placeholder="Costo de refacciones" type="number" value="" [(ngModel)]="art.costo_ref"
+                ngModel name="name27" #name27="ngModel" required>
+              <span matPrefix>$&nbsp;</span>
+              <mat-error *ngIf="!name27.valid">
+                Llene estea campo+
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6 mb-1">
+              <input matInput placeholder="Costo total para cobrar al cliente" value="" [(ngModel)]="art.costo_cobrar_cli"
+                ngModel name="name28" #name28="ngModel" required type="number">
+              <span matPrefix>$&nbsp;</span>
+              <mat-error *ngIf="!name28.valid">
+                Llene estea campo+
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6 mb-1">
+              <input matInput placeholder="Utilidad" value="" [(ngModel)]="art.utilidad" ngModel name="name29" #name29="ngModel"
+                required type="number">
+              <span matPrefix>$&nbsp;</span>
+              <mat-error *ngIf="!name29.valid">
+                Llene estea campo+
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width col-6 mb-1">
+              <input matInput placeholder="Precio de venta al cliente" value="" [(ngModel)]="art.precio_venta" ngModel
+                name="name30" #name30="ngModel" required type="number">
+              <span matPrefix>$&nbsp;</span>
+              <mat-error *ngIf="!name30.valid">
+                Llene estea campo+
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--Buttons-->
+    <div class="col-8 formulario justify-content-around m-auto">
+      <div class="row justify-content-between ">
+        <div class="col-5 text-center "  [className]="show1? 'ver' : 'col-5 text-center' ">
+          <button class="btn btn-outline-primary"  [disabled]="!contactForm.form.valid" (click)="create_user()">Guardar</button>
+        </div>
+        <div class="col-5 text-center " [className]="show? 'ver' : 'col-5 text-center'">
+          <button class="btn btn-outline-primary"  [disabled]="!contactForm.form.valid" (click)="actualizar()">Editar</button>
+        </div>
+        <div class="col-5 text-center ">
+          <button class="btn btn-outline-primary">Canelar</button>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
