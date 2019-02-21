@@ -27,3 +27,19 @@
      background: #ffdf00;
   color: white;
 }
+.mat-cell, .mat-header-cell{
+    border-left: 1px solid
+}
+.border-none{
+    border: none;
+}
+.mat-menu-content{
+    display: flex;
+    flex-direction: column;
+}
+.filtros-menu:hover{
+
+}
+.ajuste_tamaño {
+    height: 312px;
+}

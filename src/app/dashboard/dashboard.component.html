@@ -7,68 +7,207 @@
     <mat-form-field class="col-8">
       <input matInput color="primary" placeholder="Filtro">
     </mat-form-field>
-    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="filtro1('falla')">Item 1</button>
-      <button mat-menu-item (click)="filtro1('falla')">Item 2</button>
+    <button mat-button (click)="prueba()" [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu class="d-flex" #menu="matMenu">
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('consecutivo')">Consecutivo</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('reporte_ant')">Rep Ant</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('fecha_report')">Fech Rep</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('vendedor')">Vendedor</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('nombre_cliente')">Nombre Cli</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('Falla')">Falla</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('levanta_rep')">Lev Rep</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('garantia')">Garantia</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('model')">Modelo</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('marca')">Marca</mat-button-toggle>
+
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('revisiones')">Revisiones</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('nivel_molestia')">Molestia</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('venta_equipo')">Venta eq</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('instalacion')">Instalacion</mat-button-toggle>
+
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('contacto')">Contacto</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('telefono')">Telefono</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('direccion')">Direccion</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('desc_equipo')">Descuento eq</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('serie')">Serie</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('requisitos')">Requisitos</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('fecha_promesa')">Fecha prom</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('obs')">Observaciones</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('nombre_prov')">Nombre provedor</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('diagnostico')">Diagnostico</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('descripcion')">Descripcion</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('satisf_client')">Satisfaccion Client</mat-button-toggle>
+
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('costo_client')">Costo cliente</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('costo_ref')">Costo ref</mat-button-toggle>
+      <mat-button-toggle class="filtros-menu d-block " (click)="filtro1('satisf_client')">Satisfaccion Client</mat-button-toggle>
+<mat-button-toggle class="filtros-menu d-block " (click)="filtro1('obs')">Obs</mat-button-toggle>
+<mat-button-toggle class="filtros-menu d-block " (click)="filtro1('utilidad')">Utilidad</mat-button-toggle>
+<mat-button-toggle class="filtros-menu d-block " (click)="filtro1('precio_venta')">precio_venta</mat-button-toggle>
     </mat-menu>
   </div>
   <div class=" table-container mat-elevation-z8 col-12 p-0 ">
     <mat-table [dataSource]="dataSource">
       <!-- Solicitud Column -->
-      <ng-container class="consecutivo" matColumnDef="consecutivo">
-        <mat-header-cell class="consecutivo" *matHeaderCellDef>consecutivo</mat-header-cell>
-        <mat-cell class="consecutivo" *matCellDef="let rep"> {{rep.consecutivo}}</mat-cell>
+      <ng-container class="consecutivo justify-content-center border-none" matColumnDef="consecutivo">
+        <mat-header-cell class="consecutivo justify-content-center border-none" *matHeaderCellDef>consecutivo</mat-header-cell>
+        <mat-cell class="consecutivo justify-content-center border-none" *matCellDef="let rep"> {{rep.consecutivo}}</mat-cell>
       </ng-container>
       <!-- Solicitud report_ant -->
-      <ng-container class="reporte_ant" matColumnDef="report_ant">
-        <mat-header-cell class="reporte_ant" *matHeaderCellDef>Reportes anteriores</mat-header-cell>
-        <mat-cell class="reporte_ant" *matCellDef="let rep"> {{rep.report_ant}}</mat-cell>
+      <ng-container class="reporte_ant justify-content-center text-center" matColumnDef="report_ant">
+        <mat-header-cell class="reporte_ant justify-content-center text-center" *matHeaderCellDef>Reportes anteriores</mat-header-cell>
+        <mat-cell class="reporte_ant justify-content-center " *matCellDef="let rep"> {{rep.report_ant}}</mat-cell>
       </ng-container>
       <!-- Solicitud fecha_report -->
-      <ng-container class="fecha_report" matColumnDef="fecha_report">
-        <mat-header-cell class="fecha_report" *matHeaderCellDef>Fecha de reporte</mat-header-cell>
-        <mat-cell class="fecha_report" *matCellDef="let rep"> {{rep.fecha_report}}</mat-cell>
+      <ng-container class="fecha_report justify-content-center " matColumnDef="fecha_report">
+        <mat-header-cell class="fecha_report justify-content-center text-center" *matHeaderCellDef>Fecha de reporte</mat-header-cell>
+        <mat-cell class="fecha_report justify-content-center " *matCellDef="let rep"> {{rep.fecha_report}}</mat-cell>
       </ng-container>
-      <!-- Vendimos Column -->
-      <ng-container class="vendedor" matColumnDef="vendedor">
-        <mat-header-cell class="vendedor" *matHeaderCellDef>vendedor</mat-header-cell>
-        <mat-cell class="vendedor" *matCellDef="let rep"> {{rep.vendedor}}</mat-cell>
+      <!-- Solicitud revisiones -->
+      <ng-container class="revisiones d-none justify-content-center" matColumnDef="revisiones">
+        <mat-header-cell class="revisiones d-none justify-content-center" *matHeaderCellDef>Revisiones</mat-header-cell>
+        <mat-cell class="revisiones d-none justify-content-center" *matCellDef="let rep"> {{rep.revisiones}}</mat-cell>
+      </ng-container>
+      <!-- Solicitud nivel_molestia -->
+      <ng-container class="nivel_molestia d-none justify-content-center" matColumnDef="nivel_molestia">
+        <mat-header-cell class="nivel_molestia d-none justify-content-center" *matHeaderCellDef>Nivel de molestia</mat-header-cell>
+        <mat-cell class="nivel_molestia d-none justify-content-center" *matCellDef="let rep"> {{rep.nivel_molestia}}</mat-cell>
+      </ng-container>
+      <!-- Solicitud venta_equipo -->
+      <ng-container class="venta_equipo d-none justify-content-center" matColumnDef="venta_equipo">
+        <mat-header-cell class="venta_equipo d-none justify-content-center" *matHeaderCellDef>Venta de equipo</mat-header-cell>
+        <mat-cell class="venta_equipo d-none justify-content-center" *matCellDef="let rep"> {{rep.venta_equipo}}</mat-cell>
+      </ng-container>
+      <!-- Vendedor Column -->
+      <ng-container class="vendedor justify-content-center " matColumnDef="vendedor">
+        <mat-header-cell class="vendedor justify-content-center " *matHeaderCellDef>vendedor</mat-header-cell>
+        <mat-cell class="vendedor justify-content-center " *matCellDef="let rep"> {{rep.vendedor}}</mat-cell>
+      </ng-container>
+      <!-- Solicitud instalacion -->
+      <ng-container class="instalacion d-none justify-content-center" matColumnDef="instalacion">
+        <mat-header-cell class="instalacion d-none justify-content-center" *matHeaderCellDef>Instalacion</mat-header-cell>
+        <mat-cell class="instalacion d-none justify-content-center" *matCellDef="let rep"> {{rep.instalacion}}</mat-cell>
+      </ng-container>
+      <!-- Nombre del cliente Column -->
+      <ng-container class="nombre_cliente justify-content-center text-center" matColumnDef="nombre_cliente">
+        <mat-header-cell class="nombre_cliente justify-content-center text-center" *matHeaderCellDef>Nombre del cliente</mat-header-cell>
+        <mat-cell class="nombre_cliente justify-content-center " *matCellDef="let rep"> {{rep.nombre_cliente}}</mat-cell>
+      </ng-container>
+      <!-- Column contacto-->
+      <ng-container class="contacto d-none justify-content-center" matColumnDef="contacto">
+        <mat-header-cell class="contacto d-none justify-content-center" *matHeaderCellDef>Contacto</mat-header-cell>
+        <mat-cell class="contacto d-none justify-content-center" *matCellDef="let rep"> {{rep.contacto}}</mat-cell>
+      </ng-container>
+      <!-- Column telefono-->
+      <ng-container class="telefono d-none justify-content-center" matColumnDef="telefono">
+        <mat-header-cell class="telefono d-none justify-content-center" *matHeaderCellDef>Telefono</mat-header-cell>
+        <mat-cell class="telefono d-none justify-content-center" *matCellDef="let rep"> {{rep.telefono}}</mat-cell>
+      </ng-container>
+      <!-- Column direccion-->
+      <ng-container class="direccion d-none justify-content-center" matColumnDef="direccion">
+        <mat-header-cell class="direccion d-none justify-content-center" *matHeaderCellDef>Direccion</mat-header-cell>
+        <mat-cell class="direccion d-none justify-content-center" *matCellDef="let rep"> {{rep.direccion}}</mat-cell>
+      </ng-container>
+      <!-- Column desc_equipo-->
+      <ng-container class="desc_equipo d-none justify-content-center" matColumnDef="desc_equipo">
+        <mat-header-cell class="desc_equipo d-none justify-content-center" *matHeaderCellDef>Descuento de equipo</mat-header-cell>
+        <mat-cell class="desc_equipo d-none justify-content-center" *matCellDef="let rep"> {{rep.desc_equipo}}</mat-cell>
+      </ng-container>
+      <!-- Column serie-->
+      <ng-container class="serie d-none justify-content-center" matColumnDef="serie">
+        <mat-header-cell class="serie d-none justify-content-center" *matHeaderCellDef>Serie</mat-header-cell>
+        <mat-cell class="serie d-none justify-content-center" *matCellDef="let rep"> {{rep.serie}}</mat-cell>
+      </ng-container>
+
+      <!-- Column requisitos-->
+      <ng-container class="requisitos d-none justify-content-center" matColumnDef="requisitos">
+        <mat-header-cell class="requisitos d-none justify-content-center" *matHeaderCellDef>Requisitos</mat-header-cell>
+        <mat-cell class="requisitos d-none justify-content-center" *matCellDef="let rep"> {{rep.requisitos}}</mat-cell>
+      </ng-container>
+      <!-- Column fecha_promesa-->
+      <ng-container class="fecha_promesa d-none justify-content-center" matColumnDef="fecha_promesa">
+        <mat-header-cell class="fecha_promesa d-none justify-content-center" *matHeaderCellDef>Fecha promesa</mat-header-cell>
+        <mat-cell class="fecha_promesa d-none justify-content-center" *matCellDef="let rep"> {{rep.fecha_promesa}}</mat-cell>
+      </ng-container>
+      <!-- Column obs-->
+      <ng-container class="obs d-none justify-content-center" matColumnDef="obs">
+        <mat-header-cell class="obs d-none justify-content-center" *matHeaderCellDef>Observaciones</mat-header-cell>
+        <mat-cell class="obs d-none justify-content-center" *matCellDef="let rep"> {{rep.obs}}</mat-cell>
+      </ng-container>
+      <!-- Column nombre_prov-->
+      <ng-container class="nombre_prov d-none justify-content-center" matColumnDef="nombre_prov">
+        <mat-header-cell class="nombre_prov d-none justify-content-center" *matHeaderCellDef>Nombre del proveedor</mat-header-cell>
+        <mat-cell class="nombre_prov d-none justify-content-center" *matCellDef="let rep"> {{rep.nombre_prov}}</mat-cell>
+      </ng-container>
+      <!-- Column diagnostico-->
+      <ng-container class="diagnostico d-none justify-content-center" matColumnDef="diagnostico">
+        <mat-header-cell class="diagnostico d-none justify-content-center" *matHeaderCellDef>Diagnostico</mat-header-cell>
+        <mat-cell class="diagnostico d-none justify-content-center" *matCellDef="let rep"> {{rep.diagnostico}}</mat-cell>
+      </ng-container>
+      <!-- Column descripcion-->
+      <ng-container class="descripcion d-none justify-content-center" matColumnDef="descripcion">
+        <mat-header-cell class="descripcion d-none justify-content-center" *matHeaderCellDef>Descripcion</mat-header-cell>
+        <mat-cell class="descripcion d-none justify-content-center" *matCellDef="let rep"> {{rep.descripcion}}</mat-cell>
+      </ng-container>
+      <!-- Column satisf_client-->
+      <ng-container class="satisf_client d-none justify-content-center" matColumnDef="satisf_client">
+        <mat-header-cell class="satisf_client d-none justify-content-center" *matHeaderCellDef>Satisfaccion del cliente</mat-header-cell>
+        <mat-cell class="satisf_client d-none justify-content-center" *matCellDef="let rep"> {{rep.satisf_client}}</mat-cell>
+        <!-- Column costo_client-->
+      </ng-container>
+      <ng-container class="costo_client d-none justify-content-center" matColumnDef="costo_client">
+        <mat-header-cell class="costo_client d-none justify-content-center" *matHeaderCellDef>Costo cliente</mat-header-cell>
+        <mat-cell class="costo_client d-none justify-content-center" *matCellDef="let rep"> {{rep.costo_client}}</mat-cell>
+      </ng-container>
+      <!-- Column costo_ref-->
+      <ng-container class="costo_ref d-none justify-content-center" matColumnDef="costo_ref">
+        <mat-header-cell class="costo_ref d-none justify-content-center" *matHeaderCellDef>Costo de refacciones</mat-header-cell>
+        <mat-cell class="costo_ref d-none justify-content-center" *matCellDef="let rep"> {{rep.costo_ref}}</mat-cell>
+      </ng-container>
+      <!-- Column costo_cobrar_cli-->
+      <ng-container class="obs d-none justify-content-center " matColumnDef="costo_cobrar_cli">
+        <mat-header-cell class="obs d-none justify-content-center" *matHeaderCellDef>Obs</mat-header-cell>
+        <mat-cell class="obs d-none justify-content-center" *matCellDef="let rep"> {{rep.obs}}</mat-cell>
+      </ng-container>
+      <!-- Column utilidad-->
+      <ng-container class="utilidad d-none justify-content-center" matColumnDef="utilidad">
+        <mat-header-cell class="utilidad d-none justify-content-center" *matHeaderCellDef>Utilidad</mat-header-cell>
+        <mat-cell class="utilidad d-none justify-content-center" *matCellDef="let rep"> {{rep.utilidad}}</mat-cell>
+      </ng-container>
+      <!-- Column precio_venta-->
+      <ng-container class="precio_venta d-none justify-content-center" matColumnDef="precio_venta">
+        <mat-header-cell class="precio_venta d-none justify-content-center" *matHeaderCellDef>Precio de venta</mat-header-cell>
+        <mat-cell class="precio_venta d-none justify-content-center" *matCellDef="let rep"> {{rep.precio_venta}}</mat-cell>
+      </ng-container>
+      <!-- Falla Column -->
+      <ng-container class="falla justify-content-center " matColumnDef="falla">
+        <mat-header-cell class="falla justify-content-center " *matHeaderCellDef>Falla</mat-header-cell>
+        <mat-cell class="falla justify-content-center " *matCellDef="let rep"> {{rep.falla}}</mat-cell>
+      </ng-container>
+      <!-- Levante del reporte Column -->
+      <ng-container class="levanta_rep justify-content-center text-center" matColumnDef="levanta_report">
+        <mat-header-cell class="levanta_rep justify-content-center text-center" *matHeaderCellDef>Levante del reporte</mat-header-cell>
+        <mat-cell class="levanta_rep justify-content-center " *matCellDef="let rep"> {{rep.levanta_report}}</mat-cell>
       </ng-container>
       <!-- Garantia Column -->
-      <ng-container class="nombre_cliente" matColumnDef="nombre_cliente">
-        <mat-header-cell class="nombre_cliente" *matHeaderCellDef>nombre_cliente</mat-header-cell>
-        <mat-cell class="nombre_cliente" *matCellDef="let rep"> {{rep.nombre_cliente}}</mat-cell>
+      <ng-container class="garantia justify-content-center " matColumnDef="garantia">
+        <mat-header-cell class="garantia justify-content-center " *matHeaderCellDef>garantia</mat-header-cell>
+        <mat-cell class="garantia justify-content-center " *matCellDef="let rep"> {{rep.garantia}}</mat-cell>
       </ng-container>
       <!-- Garantia Column -->
-      <ng-container class="falla" matColumnDef="falla">
-        <mat-header-cell class="falla" *matHeaderCellDef>Falla</mat-header-cell>
-        <mat-cell class="falla" *matCellDef="let rep"> {{rep.falla}}</mat-cell>
+      <ng-container class="model justify-content-center " matColumnDef="modelo">
+        <mat-header-cell class="model justify-content-center " *matHeaderCellDef>Modelo</mat-header-cell>
+        <mat-cell class="model justify-content-center " *matCellDef="let rep"> {{rep.modelo}}</mat-cell>
       </ng-container>
       <!-- Garantia Column -->
-      <ng-container class="levanta_rep" matColumnDef="levanta_report">
-        <mat-header-cell class="levanta_rep" *matHeaderCellDef>Levanta Reporte</mat-header-cell>
-        <mat-cell class="levanta_rep" *matCellDef="let rep"> {{rep.levanta_report}}</mat-cell>
-      </ng-container>
-      <!-- Garantia Column -->
-      <ng-container class="garantia" matColumnDef="garantia">
-        <mat-header-cell class="garantia" *matHeaderCellDef>garantia</mat-header-cell>
-        <mat-cell class="garantia" *matCellDef="let rep"> {{rep.garantia}}</mat-cell>
-      </ng-container>
-      <!-- Garantia Column -->
-      <ng-container matColumnDef="modelo">
-        <mat-header-cell *matHeaderCellDef>Modelo</mat-header-cell>
-        <mat-cell *matCellDef="let rep"> {{rep.modelo}}</mat-cell>
-      </ng-container>
-      <!-- Garantia Column -->
-      <ng-container matColumnDef="marca">
-        <mat-header-cell *matHeaderCellDef>marca</mat-header-cell>
-        <mat-cell *matCellDef="let rep"> {{rep.marca}}</mat-cell>
+      <ng-container class="marca justify-content-center " matColumnDef="marca">
+        <mat-header-cell class="marca justify-content-center " *matHeaderCellDef>marca</mat-header-cell>
+        <mat-cell class="marca justify-content-center " *matCellDef="let rep"> {{rep.marca}}</mat-cell>
       </ng-container>
       <!-- Actions Column -->
-      <ng-container matColumnDef="Actions">
-        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-        <mat-cell *matCellDef="let rep">
+      <ng-container class="model justify-content-center " matColumnDef="Actions">
+        <mat-header-cell *matHeaderCellDef class="model justify-content-center ">Actions</mat-header-cell>
+        <mat-cell *matCellDef="let rep" class="model justify-content-center ">
           <button mat-button [matMenuTriggerFor]="menu"><i class="material-icons">
               more_vert
             </i></button>

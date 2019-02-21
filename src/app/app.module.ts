@@ -9,7 +9,9 @@ import { Form1Component } from './Forms-components /form1/form1.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatPaginatorModule,MatIconModule, MatListModule, MatTableModule, MatNativeDateModule, MatDatepickerModule, MatInputModule, MatSelectModule, MatOptionModule, MatRadioModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatMenuModule, MatPaginatorModule,MatIconModule, 
+  MatListModule, MatTableModule, MatNativeDateModule, MatDatepickerModule, MatInputModule, MatSelectModule, 
+  MatButtonToggleModule, MatOptionModule, MatRadioModule } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import {NavService} from './nav.service';
@@ -25,6 +27,7 @@ import { RepServiciosComponent } from './Forms-components /rep-servicios/rep-ser
   ],
   imports: [
     MatPaginatorModule,
+    MatButtonToggleModule,
     MatMenuModule,
     MatTableModule,
     BrowserModule,

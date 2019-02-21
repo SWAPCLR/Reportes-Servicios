@@ -16,7 +16,7 @@ import * as $ from 'jquery';
 export class DashboardComponent implements OnInit {
 informacion: null;
   dataSource = new UserDataSource(this.navService);
-  displayedColums = ['consecutivo', 'report_ant', 'fecha_report', 'nombre_cliente', 'falla', 'levanta_report', 'garantia', 'modelo', 'marca', 'Actions'];
+  displayedColums = ['consecutivo', 'report_ant', 'revisiones', 'nivel_molestia', 'venta_equipo', 'vendedor', 'instalacion' , 'garantia', 'levanta_report','fecha_report', 'nombre_cliente', 'contacto', 'telefono','direccion','desc_equipo', 'marca', 'modelo', 'serie', 'falla','requisitos', 'fecha_promesa', 'obs', 'nombre_prov','diagnostico', 'descripcion','satisf_client', 'costo_client','costo_ref', 'costo_cobrar_cli','utilidad', 'precio_venta',  'Actions'];
   art={
     id: null,
     nombre_cliente: null,
@@ -75,6 +75,10 @@ informacion: null;
   nuevo(){
     var x = false;
     this.navService.getDatos(x);
+  }
+  prueba(){
+   //$('.mat-menu-content').addClass('d-flex flex-column');
+    $('#cdk-overlay-0').addClass('h-50');
   }
 
   eliminar(rep){
