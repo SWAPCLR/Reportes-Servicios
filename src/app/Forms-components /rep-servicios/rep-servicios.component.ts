@@ -63,6 +63,9 @@ export class RepServiciosComponent implements OnInit {
       }
     });
   }
+  onSubmit(x) {
+    return x;
+  }
   ngOnInit() {
     this.x = this.navServicio.showDatos2();
     console.log(this.x);
@@ -71,6 +74,7 @@ export class RepServiciosComponent implements OnInit {
       this.show = false;
       this.show1 = true;
     }
+  
     console.log(this.flag);
     if (this.flag) {
       this.art = {

@@ -5,7 +5,7 @@
   <form (ngSubmit)="!onSubmit(contactForm);" #contactForm="ngForm">
     <div class="row justify-content-center pb-2 ">
       <div class="col-8 formulario justify-content-around ">
-        <form (ngSubmit)="!!onSubmit(contactForm);" #contactForm="ngForm">
+        <form (ngSubmit)="!onSubmit(contactForm);" #contactForm="ngForm">
           <div class="row justify-content-between form-group ">
             <mat-form-field class="example-full-width col-12">
               <input matInput minlength="5" maxlength="10" required ngModel name="name" #name="ngModel" [(ngModel)]="art.report_ant"
