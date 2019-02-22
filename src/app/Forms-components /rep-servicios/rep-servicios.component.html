@@ -1,23 +1,26 @@
+
+
 <div class="body container bg-white">
-  <form (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
+  <h2 class="text-center" > Levantamiento del servicio </h2>
+  <form (ngSubmit)="!onSubmit(contactForm);" #contactForm="ngForm">
     <div class="row justify-content-center pb-2 ">
       <div class="col-8 formulario justify-content-around ">
-        <form (ngSubmit)="onSubmit(contactForm);" #contactForm="ngForm">
+        <form (ngSubmit)="!!onSubmit(contactForm);" #contactForm="ngForm">
           <div class="row justify-content-between form-group ">
             <mat-form-field class="example-full-width col-12">
               <input matInput minlength="5" maxlength="10" required ngModel name="name" #name="ngModel" [(ngModel)]="art.report_ant"
-                (change)="log(name)" placeholder="Nombre Cliente" value="" name="name1">
+                placeholder="Nombre Cliente" value="" name="name1">
               <mat-error *ngIf="!name.valid">
-                <mat-error *ngIf="name.errors.required"> Por favor llene este campo</mat-error>
-                <mat-error *ngIf="name.errors.minlength"> El nombre debe tener mas de 5 carecteres</mat-error>
+                <mat-error *ngIf="!!name.errors.required"> Por favor llene este campo</mat-error>
+                <mat-error *ngIf="!!name.errors.minlength"> El nombre debe tener mas de 5 carecteres</mat-error>
               </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width col-6">
               <input matInput minlength="5" maxlength="10" placeholder="Contacto" value="" required ngModel name="name2"
                 #name2="ngModel">
               <mat-error *ngIf="!name2.valid">
-                <mat-error *ngIf="name2.errors.required"> Por favor llene este campo</mat-error>
-                <mat-error *ngIf="name2.errors.minlength"> El Contacto debe tener mas de 5 carecteres</mat-error>
+                <mat-error *ngIf="!!name2.errors.required"> Por favor llene este campo</mat-error>
+                <mat-error *ngIf="!!name2.errors.minlength"> El Contacto debe tener mas de 5 carecteres</mat-error>
               </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width col-6">
@@ -34,7 +37,6 @@
               </mat-error>
             </mat-form-field>
           </div>
-          <button [disabled]="!contactForm.form.valid">Enviar</button>
         </form>
       </div>
     </div>
@@ -225,7 +227,7 @@
                 ngModel name="name26" #name26="ngModel" required>
               <span matPrefix>$&nbsp;</span>
               <mat-error *ngIf="!name26.valid">
-                Llene estea campo+
+                Favor de llenar este campo
               </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width col-6 mb-1">
@@ -233,7 +235,7 @@
                 ngModel name="name27" #name27="ngModel" required>
               <span matPrefix>$&nbsp;</span>
               <mat-error *ngIf="!name27.valid">
-                Llene estea campo+
+                Favor de llenar este campo
               </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width col-6 mb-1">
@@ -241,7 +243,7 @@
                 ngModel name="name28" #name28="ngModel" required type="number">
               <span matPrefix>$&nbsp;</span>
               <mat-error *ngIf="!name28.valid">
-                Llene estea campo+
+                Favor de llenar este campo
               </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width col-6 mb-1">
@@ -249,7 +251,7 @@
                 required type="number">
               <span matPrefix>$&nbsp;</span>
               <mat-error *ngIf="!name29.valid">
-                Llene estea campo+
+                Favor de llenar este campo
               </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width col-6 mb-1">
@@ -257,7 +259,7 @@
                 name="name30" #name30="ngModel" required type="number">
               <span matPrefix>$&nbsp;</span>
               <mat-error *ngIf="!name30.valid">
-                Llene estea campo+
+                Favor de llenar este campo
               </mat-error>
             </mat-form-field>
           </div>
@@ -265,7 +267,7 @@
       </div>
     </div>
     <!--Buttons-->
-    <div class="col-8 formulario justify-content-around m-auto">
+    <div class="col-8 formulario justify-content-around m-auto pb-3">
       <div class="row justify-content-between ">
         <div class="col-5 text-center "  [className]="show1? 'ver' : 'col-5 text-center' ">
           <button class="btn btn-outline-primary"  [disabled]="!contactForm.form.valid" (click)="create_user()">Guardar</button>
@@ -274,10 +276,9 @@
           <button class="btn btn-outline-primary"  [disabled]="!contactForm.form.valid" (click)="actualizar()">Editar</button>
         </div>
         <div class="col-5 text-center ">
-          <button class="btn btn-outline-primary">Canelar</button>
+          <button class="btn btn-outline-primary" [routerLink]="['/']" routerLinkActive="router-link-active"  >Canelar</button>
         </div>
       </div>
     </div>
-
   </form>
 </div>
